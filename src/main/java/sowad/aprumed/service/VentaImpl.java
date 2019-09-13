@@ -1,5 +1,5 @@
 package sowad.aprumed.service;
 
-public class Venta {
+public class VentaImpl {
 
 }
