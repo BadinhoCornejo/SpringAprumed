@@ -4,6 +4,8 @@
 /*  DBMS       : MySql 						*/
 /* ---------------------------------------------------- */
 
+use aprumeddb;
+
 SET FOREIGN_KEY_CHECKS=0 
 ;
 
