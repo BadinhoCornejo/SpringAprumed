@@ -1,5 +1,5 @@
 package sowad.aprumed.dao;
 
-public class LibroDao {
+public interface LibroDao {
 
 }
