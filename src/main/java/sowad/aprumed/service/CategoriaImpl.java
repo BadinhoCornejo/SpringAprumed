@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import sowad.aprumed.dao.CategoriaDao;
 import sowad.aprumed.model.Categoria;
@@ -29,7 +30,23 @@ public class CategoriaImpl implements CategoriaDao{
 		jdbcTemplate = new JdbcTemplate(dataSource);
 		return jdbcTemplate.update(query, nombreCategoria);
 	}
-	public int editarCategoria(Categoria categoria);
-	public int eliminarCategoria(Categoria categoria);
-	public List<Categoria> mostrarCategoria(Categoria categoria);
+	public int editarCategoria(Categoria categoria) {
+		
+	}
+	public int eliminarCategoria(Categoria categoria) {
+		
+	}
+	public List<Categoria> mostrarCategoria(Categoria categoria){
+		String query="select * from Categoria";
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate.update(query);
+		return this.jdbcTemplate.query(sql,
+				new RowMapper<Categoria>() {
+			@Override
+			public Categoria mapRow(ResultSet rs, int i)
+					throws SQLException{
+				
+			}
+		}
+	}
 }

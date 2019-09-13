@@ -4,10 +4,10 @@ public class Categoria {
 
 	private int CategoriaID;
 	private String NombreCategoria;
-	
+	private String Estado;
 	@Override
 	public String toString() {
-		return "Categoria [CategoriaID=" + CategoriaID + ", NombreCategoria=" + NombreCategoria + "]";
+		return "Categoria [CategoriaID=" + CategoriaID + ", NombreCategoria=" + NombreCategoria + ",Estado=" + Estado + "]";
 	}
 	
 	public int getCategoriaID() {
@@ -22,5 +22,12 @@ public class Categoria {
 	public void setNombreCategoria(String nombreCategoria) {
 		NombreCategoria = nombreCategoria;
 	}
+	public String getEstado(){
+		return Estado;
+	}
+	public void setEstado(String estado) {
+		Estado = estado;
+	}
+	
 	
 }
