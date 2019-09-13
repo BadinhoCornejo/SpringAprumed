@@ -1,15 +1,15 @@
 package sowad.aprumed.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Libro implements Serializable {
+public class Libro {
+
 
 	@Override
 	public String toString() {
 		return "Libro [LibroID=" + LibroID + ", Autor=" + Autor + ", FechaPublicacion=" + FechaPublicacion + ", Isbn="
 				+ Isbn + ", Precio=" + Precio + ", Stock=" + Stock + ", Titulo=" + Titulo + ", CategoriaID="
-				+ CategoriaID + "]";
+				+ CategoriaID + ", Estado=" + Estado + "]";
 	}
 	public int getLibroID() {
 		return LibroID;
@@ -67,4 +67,11 @@ public class Libro implements Serializable {
 	private int Stock;
 	private String Titulo;
 	private int CategoriaID;
+	private String Estado;
+	public String getEstado() {
+		return Estado;
+	}
+	public void setEstado(String estado) {
+		Estado = estado;
+	}
 }
