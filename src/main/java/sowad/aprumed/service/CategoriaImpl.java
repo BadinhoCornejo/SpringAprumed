@@ -29,7 +29,13 @@ public class CategoriaImpl implements CategoriaDao{
 		jdbcTemplate = new JdbcTemplate(dataSource);
 		return jdbcTemplate.update(query, nombreCategoria);
 	}
-	public int editarCategoria(Categoria categoria);
-	public int eliminarCategoria(Categoria categoria);
-	public List<Categoria> mostrarCategoria(Categoria categoria);
+	public int editarCategoria(Categoria categoria) {
+		
+	}
+	public int eliminarCategoria(Categoria categoria) {
+		
+	}
+	public List<Categoria> mostrarCategoria(Categoria categoria){
+		
+	}
 }
