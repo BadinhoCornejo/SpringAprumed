@@ -66,9 +66,9 @@ public class UsuarioImpl implements UsuarioDao {
 	@Override
 	public Usuario buscarUsuarioCuenta(String id) {
 		String statement = "Select * from usuario usr inner join tipousuario tipUsr on(usr.TipoUsuarioID = tipUsr.TipoUsuarioID)"
-				+ "inner join aprumeddb.cuenta acc on(usr.UsuarioID = acc.UsuarioID)" + " where usr.UsuarioID = ?";
+				+ " inner join cuenta acc on(usr.UsuarioID = acc.UsuarioID)" + " where usr.UsuarioID = ?";
 		Object[] inputs = new Object[] { id };
-		return jdbcTemplateObject.queryForObject(statement, inputs, new UsuarioMapper());
+		return jdbcTemplateObject.queryForObject(statement, inputs, new UsuariosMapper());
 	}
 
 	@SuppressWarnings("unchecked")

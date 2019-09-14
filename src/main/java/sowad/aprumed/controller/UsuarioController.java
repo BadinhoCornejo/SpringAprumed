@@ -182,7 +182,7 @@ public class UsuarioController {
 		
 		model.addAttribute("user", usr);
 		model.addAttribute("acc", usr.getCuenta());
-		
+
 		return "usuarios/editarUsuario";
 	}
 

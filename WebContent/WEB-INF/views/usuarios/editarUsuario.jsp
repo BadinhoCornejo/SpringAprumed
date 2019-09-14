@@ -25,9 +25,21 @@
 <!-- ----------------------------- -->
 
 <style type="text/css">
-	.hide{
-		display: none;
-	}
+.hide {
+	display: none;
+}
+form .row{
+	padding-left: 2em !important;
+	padding-right: 2em !important;
+}
+
+form label{
+	margin-right: 10px;
+}
+
+.row{
+	flex-wrap: unset;
+}
 </style>
 
 </head>
@@ -52,22 +64,107 @@
 				<div class="card text-center">
 					<div class="card-header">
 						<ul class="nav nav-tabs card-header-tabs">
-							<li class="nav-item"><a class="nav-link active" id="userLink" href="#">Usuario</a>
-							</li>
-							<li class="nav-item"><a class="nav-link" id="accLink" href="#">Cuenta</a></li>
+							<li class="nav-item"><a class="nav-link active"
+								id="userLink" href="#">Usuario</a></li>
+							<li class="nav-item"><a class="nav-link" id="accLink"
+								href="#">Cuenta</a></li>
 						</ul>
 					</div>
 					<div class="card-body" id="editUser">
 						<h5 class="card-title">Editar usuario</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
+						<form action="${urlForm}crear" method="post">
+							<div class="row">
+								<div class="form-group row">
+									<label for="usr_apellido">Apellido</label> <input type="text"
+										class="form-control" id="usr_apellido" name="usr_apellido"
+										placeholder="Apellido" value="${user.apellido}"
+										required="required">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group row">
+									<label for="usr_nombre">Nombre</label> <input type="text"
+										class="form-control" id="usr_nombre" name="usr_nombre"
+										placeholder="Nombre" value="${user.nombre}"
+										required="required">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group row">
+									<label for="usr_phone">Teléfono</label> <input type="text"
+										pattern="\d*" maxlength="9" class="form-control"
+										id="usr_phone" name="usr_phone" value="${user.telefono}"
+										required="required">
+								</div>
+								<div class="form-group row ml-5">
+									<label for="usr_dni">DNI</label> <input type="text"
+										pattern="\d*" maxlength="8" class="form-control" id="usr_dni"
+										name="usr_dni" value="${user.dni}" required="required">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group row">
+									<label for="tipo_usr">Tipo de usuario</label> <select
+										id="tipo_usr" name="tipo_usr" class="form-control"
+										required="required">
+										<c:forEach items="${VTipoUsrs}" var="item">
+											<option value="${item.nombreTipoUsuario}">${item.nombreTipoUsuario}</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							<fieldset class="form-group">
+								<div class="row">
+									<label class="col-form-label col-sm-1 pt-0">Sexo</label>
+									<div class="col-sm-4">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="sex"
+												id="m" value="Masculino" checked> <label
+												class="form-check-label" for="gridRadios1"> Masulino
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="sex"
+												id="f" value="Femenino"> <label
+												class="form-check-label" for="gridRadios2"> Femenino
+											</label>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</form>
 					</div>
 					<div class="card-body hide" id="editAcc">
 						<h5 class="card-title">Editar cuenta</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
+						<form action="${urlForm}crearCuenta" method="post">
+							<div class="row">
+								<div class="form-group col-md-5">
+									<label for="usr_dni">DNI</label> <input type="text"
+										class="form-control" id="usr_dni" name="usr_dni"
+										value="${user.dni}" readonly="readonly">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-5">
+									<label for="acc_email">Email</label> <input type="email"
+										class="form-control" id="acc_email" name="acc_email"
+										placeholder="Email" value="${acc.email}" required="required">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-5">
+									<label for="acc_password">Contraseña</label> <input
+										type="password" class="form-control" id="acc_password"
+										name="acc_password" value="${acc.usrPassword}"
+										placeholder="password" required="required">
+								</div>
+							</div>
+
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</form>
 					</div>
 				</div>
 
@@ -76,7 +173,7 @@
 		</div>
 
 	</div>
-	
+
 	<script type="text/javascript" src="${urlPublic}/js/editUsers.js"></script>
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>
