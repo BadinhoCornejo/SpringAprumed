@@ -28,17 +28,31 @@
 .hide {
 	display: none;
 }
-form .row{
-	padding-left: 2em !important;
-	padding-right: 2em !important;
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
-form label{
+form div {
+	width: 200px;
+	height: 100px;
+}
+
+form label {
 	margin-right: 10px;
 }
 
-.row{
-	flex-wrap: unset;
+.form-check {
+	height: 20px !important;
+	width: 20px !important;
+}
+
+.row {
+	width: 20em;
 }
 </style>
 
@@ -72,7 +86,7 @@ form label{
 					</div>
 					<div class="card-body" id="editUser">
 						<h5 class="card-title">Editar usuario</h5>
-						<form action="${urlForm}crear" method="post">
+						<form action="${urlRoot}/usuarios/editUser" method="post">
 							<div class="row">
 								<div class="form-group row">
 									<label for="usr_apellido">Apellido</label> <input type="text"
@@ -98,7 +112,10 @@ form label{
 										id="usr_phone" name="usr_phone" value="${user.telefono}"
 										required="required">
 								</div>
-								<div class="form-group row ml-5">
+
+							</div>
+							<div class="row">
+								<div class="form-group row">
 									<label for="usr_dni">DNI</label> <input type="text"
 										pattern="\d*" maxlength="8" class="form-control" id="usr_dni"
 										name="usr_dni" value="${user.dni}" required="required">
@@ -117,7 +134,7 @@ form label{
 							</div>
 							<fieldset class="form-group">
 								<div class="row">
-									<label class="col-form-label col-sm-1 pt-0">Sexo</label>
+									<label class="col-form-label">Sexo</label>
 									<div class="col-sm-4">
 										<div class="form-check">
 											<input class="form-check-input" type="radio" name="sex"
@@ -139,29 +156,43 @@ form label{
 					</div>
 					<div class="card-body hide" id="editAcc">
 						<h5 class="card-title">Editar cuenta</h5>
-						<form action="${urlForm}crearCuenta" method="post">
+						<form action="${urlRoot}/usuarios/editAccount" method="post">
 							<div class="row">
-								<div class="form-group col-md-5">
-									<label for="usr_dni">DNI</label> <input type="text"
-										class="form-control" id="usr_dni" name="usr_dni"
-										value="${user.dni}" readonly="readonly">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-md-5">
+								<div class="form-group col-12">
 									<label for="acc_email">Email</label> <input type="email"
 										class="form-control" id="acc_email" name="acc_email"
 										placeholder="Email" value="${acc.email}" required="required">
 								</div>
 							</div>
 							<div class="row">
-								<div class="form-group col-md-5">
+								<div class="form-group col-12">
 									<label for="acc_password">Contraseña</label> <input
 										type="password" class="form-control" id="acc_password"
 										name="acc_password" value="${acc.usrPassword}"
 										placeholder="password" required="required">
 								</div>
 							</div>
+
+							<fieldset class="form-group">
+								<div class="row">
+									<label class="col-form-label">Estado</label>
+									<div class="col-sm-4">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="estado"
+												id="a" value="Activo" checked> <label
+												class="form-check-label" for="estatus"> Activo </label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="estado"
+												id="i" value="Inactivo"> <label
+												class="form-check-label" for="estatus"> Inactivo </label>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+
+							<input type="hidden" name="usr_dni"
+								value="${user.dni}">
 
 							<button type="submit" class="btn btn-primary">Guardar</button>
 						</form>

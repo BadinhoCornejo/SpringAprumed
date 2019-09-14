@@ -180,10 +180,84 @@ public class UsuarioController {
 		
 		Usuario usr = usuarioDao.buscarUsuarioCuenta(id);
 		
+		List<TipoUsuario> tipUsrs = getTiposUsr();
+		
+		model.addAttribute("VTipoUsrs", tipUsrs);
 		model.addAttribute("user", usr);
 		model.addAttribute("acc", usr.getCuenta());
 
 		return "usuarios/editarUsuario";
+	}
+	
+	@PostMapping(value = "/editUser")
+	public String editUsuario(Usuario usuario, @RequestParam("usr_apellido") String apellido,
+			@RequestParam("usr_nombre") String nombre, @RequestParam("usr_phone") String telefono,
+			@RequestParam("usr_dni") String dni, @RequestParam("tipo_usr") String tipoUsr,
+			@RequestParam("sex") String sexo, Model model) {
+		
+		List<Usuario> users = new ArrayList<Usuario>();
+		List<TipoUsuario> tipUsrs = getTiposUsr();
+		
+		Usuario temp = usuarioDao.buscarUsuario(dni);
+		
+		try {
+			
+			Usuario usr = new Usuario();
+			usr.setApellido(apellido);
+			usr.setNombre(nombre);
+			usr.setTelefono(telefono);
+			usr.setDni(dni);
+			usr.setSexo(sexo);
+			usr.setUsuarioID(temp.getUsuarioID());
+
+			TipoUsuario tipoUsuario = tipoUsuarioDao.buscarTipoUsuario(tipoUsr);
+
+			usr.setTipoUsuario(tipoUsuario);
+
+			usuarioDao.editarUsuario(usr);
+			
+			users = usuarioDao.mostrarUsuarios();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		
+		model.addAttribute("VUsers", users);
+		model.addAttribute("VTipoUsrs", getOptions(tipUsrs));
+		
+		return "usuarios/usuarios";
+	}
+	
+	@PostMapping(value = "/editAccount")
+	public String editCuenta(Cuenta cuenta, @RequestParam("usr_dni") String dni,
+			@RequestParam("acc_email") String email, @RequestParam("acc_password") String pass,
+			@RequestParam("estado") String estado, Model model) {
+		
+		List<Usuario> users = new ArrayList<Usuario>();
+		List<TipoUsuario> tipUsrs = getTiposUsr();
+		
+		try {
+			Cuenta acc = new Cuenta();
+			acc.setEmail(email);
+			acc.setUsrPassword(pass);
+			acc.setEstado(estado);
+
+			Usuario usr = usuarioDao.buscarUsuario(dni);
+
+			acc.setUsuario(usr);
+
+			cuentaDao.editarCuenta(acc);
+			
+			users = usuarioDao.mostrarUsuarios();
+			
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		
+		model.addAttribute("VUsers", users);
+		model.addAttribute("VTipoUsrs", getOptions(tipUsrs));
+
+		return "usuarios/usuarios";
 	}
 
 	// --------------------------------Utiles-------------------------

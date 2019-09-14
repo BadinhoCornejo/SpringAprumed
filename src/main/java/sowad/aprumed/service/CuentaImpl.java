@@ -39,10 +39,10 @@ public class CuentaImpl implements CuentaDao {
 
 	@Override
 	public int editarCuenta(Cuenta cuenta) {
-		String statement = "Update cuenta" + " set Email = '"+ cuenta.getEmail() + "' "
-							+ "UsrPassword = '"+ cuenta.getUsrPassword() + "' "
+		String statement = "Update cuenta" + " set Email = '"+ cuenta.getEmail() + "', "
+							+ "UsrPassword = '"+ cuenta.getUsrPassword() + "', "
 							+ "Estado = '"+ cuenta.getEstado() + 
-							" where CuentaID = '"+ cuenta.getCuentaID()+"'";
+							"' where UsuarioID = '"+ cuenta.getUsuario().getUsuarioID()+"'";
 		
 		return jdbcTemplateObject.update(statement);
 	}

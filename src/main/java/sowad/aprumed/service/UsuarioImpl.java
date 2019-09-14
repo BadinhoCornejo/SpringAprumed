@@ -45,9 +45,9 @@ public class UsuarioImpl implements UsuarioDao {
 	@Override
 	public int editarUsuario(Usuario usuario) {
 
-		String statement = "Update usuario" + " set Apellido = '" + usuario.getApellido() + "' " + "Dni = '"
-				+ usuario.getDni() + "' " + "Sexo = '" + usuario.getSexo() + "' Nombre = '" + usuario.getNombre()
-				+ "' Telefono = '" + usuario.getTelefono() + "' TipoUsuarioID = '"
+		String statement = "Update usuario" + " set Apellido = '" + usuario.getApellido() + "', " + "Dni = '"
+				+ usuario.getDni() + "', " + "Sexo = '" + usuario.getSexo() + "', Nombre = '" + usuario.getNombre()
+				+ "', Telefono = '" + usuario.getTelefono() + "', TipoUsuarioID = '"
 				+ usuario.getTipoUsuario().getTipoUsuarioID() + "' "+
 				" where UsuarioID ='"+usuario.getUsuarioID()+"'";
 
