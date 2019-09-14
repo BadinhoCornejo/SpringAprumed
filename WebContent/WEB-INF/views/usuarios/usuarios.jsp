@@ -5,6 +5,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!-- ----------------------------- -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Usuarios</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -18,11 +23,6 @@
 <spring:url value="/" var="urlRoot"></spring:url>
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
 
@@ -46,7 +46,7 @@
 						<label class="mr-4" for="tipoUsuarioSelect">Tipo de usuario</label> <select
 							class="form-control" id="tipoUsuarioSelect" name = "tipoUsr">
 							<c:forEach items="${VTipoUsrs}" var="item">
-								<option value="${item.nombreTipoUsuario}">${item.nombreTipoUsuario}</option>
+								<option value="${item}">${item}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -79,6 +79,11 @@
 								<td>${user.tipoUsuario.nombreTipoUsuario}</td>
 								<td>${user.cuenta.email}</td>
 								<td>${user.cuenta.estado}</td>
+								<td class="options">
+									<a>Eliminar</a>
+									<hr>
+									<a>Editar</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

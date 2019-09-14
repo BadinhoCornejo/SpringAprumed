@@ -9,8 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import sowad.aprumed.dao.UsuarioDao;
+import sowad.aprumed.mappers.TipoUsuarioMapper;
+import sowad.aprumed.mappers.UsuariosMapper;
 import sowad.aprumed.model.Usuario;
-import sowad.aprumed.util.UsuariosMapper;
 
 public class UsuarioImpl implements UsuarioDao {
 
@@ -24,8 +25,17 @@ public class UsuarioImpl implements UsuarioDao {
 
 	@Override
 	public int crearUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return 0;
+		String query = "insert into usuario (Apellido,Dni,Nombre,Sexo,Telefono,TipoUsuarioID)" + 
+						" values (?,?,?,?,?,?)";
+		Object[] inputs = new Object[] {
+				usuario.getApellido(),
+				usuario.getDni(),
+				usuario.getNombre(),
+				usuario.getSexo(),
+				usuario.getTelefono(),
+				usuario.getTipoUsuario().getTipoUsuarioID()
+		};
+		return jdbcTemplateObject.update(query, inputs);
 	}
 
 	@Override
@@ -42,8 +52,8 @@ public class UsuarioImpl implements UsuarioDao {
 
 	@Override
 	public Usuario buscarUsuario(String Dni) {
-		// TODO Auto-generated method stub
-		return null;
+		String statement = "Select * from usuario where UsuarioID = "+Dni;
+		return jdbcTemplateObject.queryForObject(statement, new UsuariosMapper());
 	}
 
 	@SuppressWarnings("unchecked")

@@ -1,4 +1,4 @@
-package sowad.aprumed.util;
+package sowad.aprumed.mappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -3,15 +3,21 @@ package sowad.aprumed.service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
+import java.sql.Types;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import com.mysql.cj.protocol.Resultset;
 
 import sowad.aprumed.dao.TipoUsuarioDao;
+import sowad.aprumed.mappers.TipoUsuarioMapper;
+import sowad.aprumed.mappers.UsuariosMapper;
 import sowad.aprumed.model.TipoUsuario;
 
 public class TipoUsuarioImpl implements TipoUsuarioDao {
@@ -37,23 +43,17 @@ public class TipoUsuarioImpl implements TipoUsuarioDao {
 
 	@Override
 	public TipoUsuario buscarTipoUsuario(String nombreTipoUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		String statement = "Select * from tipousuario where NombreTipoUsuario = ?";
+		Object[] inputs = new Object[] {
+				nombreTipoUsuario
+		};
+		return jdbcTemplateObject.queryForObject(statement, inputs,new TipoUsuarioMapper());
 	}
 
 	@Override
 	public List<TipoUsuario> mostrarTiposUsuario() {
 		String statement = "Select * from tipousuario";
-		return jdbcTemplateObject.query(statement, new RowMapper<TipoUsuario>() {
-			@Override
-			public TipoUsuario mapRow(ResultSet rs, int i) throws SQLException{
-				TipoUsuario tipUsr = new TipoUsuario();
-				tipUsr.setNombreTipoUsuario(rs.getString("NombreTipoUsuario"));
-				tipUsr.setEstado(rs.getString("Estado"));
-				tipUsr.setTipoUsuarioID(rs.getInt("TipoUsuarioID"));
-				return tipUsr;
-			}
-		});
+		return jdbcTemplateObject.query(statement, new TipoUsuarioMapper());
 	}
 
 }

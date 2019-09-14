@@ -58,6 +58,13 @@ a, a:hover, a:focus {
 	color: #00FF00;
 }
 
+/*Tablas*/
+
+table td.options a:hover{
+	cursor: pointer;
+	color: #007BFF !important;
+}
+
 /*General*/
 
 /*Sidebar*/

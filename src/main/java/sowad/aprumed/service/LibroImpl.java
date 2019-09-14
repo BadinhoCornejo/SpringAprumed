@@ -16,8 +16,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import com.mysql.cj.protocol.Resultset;
 
 import sowad.aprumed.dao.LibroDao;
+import sowad.aprumed.mappers.LibrosMapper;
 import sowad.aprumed.model.Libro;
-import sowad.aprumed.util.LibrosMapper;
 
 public class LibroImpl implements LibroDao {
 

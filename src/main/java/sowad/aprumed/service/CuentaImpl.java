@@ -1,14 +1,36 @@
 package sowad.aprumed.service;
 
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import sowad.aprumed.dao.CuentaDao;
 import sowad.aprumed.model.Cuenta;
 
-public class CuentaImpl implements CuentaDao{
+public class CuentaImpl implements CuentaDao {
+
+	private DataSource dataSource;
+	private JdbcTemplate jdbcTemplateObject;
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
 
 	@Override
 	public int crearCuenta(Cuenta cuenta) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		cuenta.setEstado("Activo");
+		
+		String query = "insert into cuenta (Email,Estado,UsrPassword,UsuarioID)"
+				+ " values (?,?,?,?)";
+		Object[] inputs = new Object[] { 
+				cuenta.getEmail(),
+				cuenta.getEstado(),
+				cuenta.getUsrPassword(),
+				cuenta.getUsuario().getUsuarioID()
+		};
+		return jdbcTemplateObject.update(query, inputs);
 	}
 
 	@Override

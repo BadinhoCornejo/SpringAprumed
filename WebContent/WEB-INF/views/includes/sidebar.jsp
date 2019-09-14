@@ -20,7 +20,7 @@
 		</a>
 			<ul class="collapse list-unstyled" id="pageSubmenu">
 				<li><a href="/SpringAprumed/usuarios/">Ver usuarios</a></li>
-				<li><a href="#">Page 2</a></li>
+				<li><a href="/SpringAprumed/usuarios/nuevoUsuario">Nuevo usuario</a></li>
 				<li><a href="#">Page 3</a></li>
 			</ul> <a href="#"> <i class="fas fa-briefcase"></i> About
 		</a></li>
