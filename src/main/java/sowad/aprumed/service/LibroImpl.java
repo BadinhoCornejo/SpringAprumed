@@ -17,7 +17,7 @@ import com.mysql.cj.protocol.Resultset;
 
 import sowad.aprumed.dao.LibroDao;
 import sowad.aprumed.model.Libro;
-import sowad.aprumed.model.Categoria;
+import sowad.aprumed.util.LibrosMapper;
 
 public class LibroImpl implements LibroDao {
 
@@ -35,28 +35,6 @@ public class LibroImpl implements LibroDao {
 		Object[] inputs = new Object[] { libro.getAutor(), libro.getCategoria().getCategoriaID(), libro.getEstado(),
 				libro.getFechaPublicacion(), libro.getIsbn(), libro.getPrecio(), libro.getStock(), libro.getTitulo() };
 		return jdbcTemplateObject.update(query, inputs);
-	}
-
-	private static class LibrosMapper implements RowMapper<Libro> {
-		public Libro mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Libro lib = new Libro();
-			lib.setLibroID(rs.getInt("LibroID"));
-			lib.setAutor(rs.getString("Autor"));
-			lib.setEstado(rs.getString("Estado"));
-			lib.setFechaPublicacion(rs.getDate("FechaPublicacion"));
-			lib.setIsbn(rs.getString("Isbn"));
-			lib.setTitulo(rs.getString("Titulo"));
-			lib.setPrecio(rs.getDouble("Precio"));
-			lib.setStock(rs.getInt("Stock"));
-
-			Categoria cat = new Categoria();
-			cat.setCategoriaID(rs.getInt("CategoriaID"));
-			cat.setNombreCategoria(rs.getString("NombreCategoria"));
-
-			lib.setCategoria(cat);
-
-			return lib;
-		}
 	}
 
 	@SuppressWarnings("unchecked")

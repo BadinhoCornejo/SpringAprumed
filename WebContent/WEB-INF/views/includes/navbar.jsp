@@ -2,16 +2,16 @@
 
 	<i id="sidebarCollapse" class="fas fa-align-left"></i>
 
-	<form class="form-inline">
-		<input class="form-control mr-sm-2" type="search" placeholder="Search"
+	<form class="form-inline mt-3">
+		<input class="form-control mr-sm-2" type="search" placeholder="Buscar libros"
 			aria-label="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 	</form>
 
 	<div class="collapse navbar-collapse justify-content-end"
 		id="navbarSupportedContent">
 		<ul class="navbar-nav">
-			<li class="nav-item active"><a class="nav-link" href="#">Home
+			<li class="nav-item active"><a class="nav-link" href="/SpringAprumed/dashboard">Home
 					<span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item dropdown"><a

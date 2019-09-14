@@ -2,15 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <!-- Copiar esto en todos los jsp -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!-- ----------------------------- -->
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Dashboard</title>
-
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -20,41 +14,82 @@
 <script src="https://kit.fontawesome.com/e1143320de.js"></script>
 
 <spring:url value="/resources" var="urlPublic" />
-<spring:url value="/" var="urlRoot"></spring:url>
 
+<spring:url value="/" var="urlRoot"></spring:url>
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
-<link rel="stylesheet" href="${urlPublic}/css/dashboard.css">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
 
 	<div class="wrapper">
 
 		<!-- Menu lateral -->
-		<jsp:include page="includes/sidebar.jsp"></jsp:include>
+		<jsp:include page="../includes/sidebar.jsp"></jsp:include>
 		<!-- Menu lateral-end -->
 
 		<!-- Contenido de la página -->
 		<div class="content">
 			<!-- Navbar -->
-			<jsp:include page="includes/navbar.jsp"></jsp:include>
+			<jsp:include page="../includes/navbar.jsp"></jsp:include>
 			<!-- Navbar-end -->
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>
-					Dashboard works!<i class="fas fa-rocket"></i>
-				</h1>
+				<h1>Usuarios</h1>
+				<form class="form-inline" action="${urlRoot}usuarios/filtrar" method="post">
+					<div class="form-group">
+						<label class="mr-4" for="tipoUsuarioSelect">Tipo de usuario</label> <select
+							class="form-control" id="tipoUsuarioSelect" name = "tipoUsr">
+							<c:forEach items="${VTipoUsrs}" var="item">
+								<option value="${item.nombreTipoUsuario}">${item.nombreTipoUsuario}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary ml-4">Filtrar</button>
+				</form>
+				<table class="table table-striped table bordered table-hover">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Dni</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Sexo</th>
+							<th scope="col">Teléfono</th>
+							<th scope="col">Tipo de usuario</th>
+							<th scope="col">Email</th>
+							<th scope="col">Estado</th>
+							<th scope="col">Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${VUsers}" var="user">
+							<tr>
+								<td>${user.usuarioID}</td>
+								<td>${user.dni}</td>
+								<td>${user.apellido}</td>
+								<td>${user.nombre}</td>
+								<td>${user.sexo}</td>
+								<td>${user.telefono}</td>
+								<td>${user.tipoUsuario.nombreTipoUsuario}</td>
+								<td>${user.cuenta.email}</td>
+								<td>${user.cuenta.estado}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
-				<div id="root"></div>
 			</div>
 
 		</div>
 
 	</div>
 
-
-	<script type="text/javascript" src="${urlPublic}/js/dashboard.js"></script>
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>
 

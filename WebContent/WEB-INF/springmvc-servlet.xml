@@ -38,8 +38,16 @@
 		class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="libroDao" class="sowad.aprumed.service.LibroImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="usuarioDao" class="sowad.aprumed.service.UsuarioImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="tipoUsuarioDao"
+		class="sowad.aprumed.service.TipoUsuarioImpl">
+		<qualifier value="tipdao" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 

@@ -6,6 +6,8 @@
 
 use aprumeddb;
 
+SET GLOBAL time_zone = '-3:00';
+
 SET FOREIGN_KEY_CHECKS=0 
 ;
 
