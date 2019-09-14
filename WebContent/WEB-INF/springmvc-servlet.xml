@@ -50,5 +50,11 @@
 		<qualifier value="tipdao" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="cuentaDao"
+		class="sowad.aprumed.service.CuentaImpl">
+		<qualifier value="accdao" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 </beans>

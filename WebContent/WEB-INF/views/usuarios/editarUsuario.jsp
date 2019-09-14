@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Usuarios</title>
+<title>Editar usuario</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,10 +19,17 @@
 <script src="https://kit.fontawesome.com/e1143320de.js"></script>
 
 <spring:url value="/resources" var="urlPublic" />
-
 <spring:url value="/" var="urlRoot"></spring:url>
+
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
+
+<style type="text/css">
+	.hide{
+		display: none;
+	}
+</style>
+
 </head>
 <body>
 
@@ -40,68 +47,37 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>Usuarios</h1>
-				<form class="form-inline" action="${urlRoot}usuarios/filtrar"
-					method="post">
-					<div class="form-group">
-						<label class="mr-4" for="tipoUsuarioSelect">Tipo de
-							usuario</label> <select class="form-control" id="tipoUsuarioSelect"
-							name="tipoUsr">
-							<c:forEach items="${VTipoUsrs}" var="item">
-								<option value="${item}">${item}</option>
-							</c:forEach>
-						</select>
+				<h1>Editar usuario</h1>
+
+				<div class="card text-center">
+					<div class="card-header">
+						<ul class="nav nav-tabs card-header-tabs">
+							<li class="nav-item"><a class="nav-link active" id="userLink" href="#">Usuario</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" id="accLink" href="#">Cuenta</a></li>
+						</ul>
 					</div>
-					<button type="submit" class="btn btn-primary ml-4">Filtrar</button>
-				</form>
-				<table class="table table-striped table bordered table-hover">
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Dni</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Sexo</th>
-							<th scope="col">Teléfono</th>
-							<th scope="col">Tipo de usuario</th>
-							<th scope="col">Email</th>
-							<th scope="col">Estado</th>
-							<th scope="col">Opciones</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${VUsers}" var="user">
-							<tr>
-								<td>${user.usuarioID}</td>
-								<td>${user.dni}</td>
-								<td>${user.apellido}</td>
-								<td>${user.nombre}</td>
-								<td>${user.sexo}</td>
-								<td>${user.telefono}</td>
-								<td>${user.tipoUsuario.nombreTipoUsuario}</td>
-								<td>${user.cuenta.email}</td>
-								<td><c:choose>
-										<c:when test="${user.cuenta.estado=='Activo'}">
-											<span class="badge badge-pill badge-primary">${user.cuenta.estado}</span>
-										</c:when>
-										<c:otherwise>
-											<span class="badge badge-pill badge-danger">${user.cuenta.estado}</span>
-										</c:otherwise>
-									</c:choose></td>
-								<td class="options"><a
-									href="usuarios/delete?dni=${user.dni}">Eliminar</a>
-									<hr> <a href="usuarios/update?id=${user.usuarioID}">Editar</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+					<div class="card-body" id="editUser">
+						<h5 class="card-title">Editar usuario</h5>
+						<p class="card-text">With supporting text below as a natural
+							lead-in to additional content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+					<div class="card-body hide" id="editAcc">
+						<h5 class="card-title">Editar cuenta</h5>
+						<p class="card-text">With supporting text below as a natural
+							lead-in to additional content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
 
 			</div>
 
 		</div>
 
 	</div>
-
+	
+	<script type="text/javascript" src="${urlPublic}/js/editUsers.js"></script>
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>
 

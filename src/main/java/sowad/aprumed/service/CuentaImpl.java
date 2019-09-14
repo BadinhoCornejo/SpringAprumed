@@ -20,8 +20,6 @@ public class CuentaImpl implements CuentaDao {
 	@Override
 	public int crearCuenta(Cuenta cuenta) {
 		
-		cuenta.setEstado("Activo");
-		
 		String query = "insert into cuenta (Email,Estado,UsrPassword,UsuarioID)"
 				+ " values (?,?,?,?)";
 		Object[] inputs = new Object[] { 
@@ -41,8 +39,12 @@ public class CuentaImpl implements CuentaDao {
 
 	@Override
 	public int editarCuenta(Cuenta cuenta) {
-		// TODO Auto-generated method stub
-		return 0;
+		String statement = "Update cuenta" + " set Email = '"+ cuenta.getEmail() + "' "
+							+ "UsrPassword = '"+ cuenta.getUsrPassword() + "' "
+							+ "Estado = '"+ cuenta.getEstado() + 
+							" where CuentaID = '"+ cuenta.getCuentaID()+"'";
+		
+		return jdbcTemplateObject.update(statement);
 	}
 
 }

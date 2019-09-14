@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Usuarios</title>
+<title>Crear cuenta</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,8 +19,8 @@
 <script src="https://kit.fontawesome.com/e1143320de.js"></script>
 
 <spring:url value="/resources" var="urlPublic" />
-
 <spring:url value="/" var="urlRoot"></spring:url>
+
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
 </head>
@@ -40,67 +40,40 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>Usuarios</h1>
-				<form class="form-inline" action="${urlRoot}usuarios/filtrar"
-					method="post">
-					<div class="form-group">
-						<label class="mr-4" for="tipoUsuarioSelect">Tipo de
-							usuario</label> <select class="form-control" id="tipoUsuarioSelect"
-							name="tipoUsr">
-							<c:forEach items="${VTipoUsrs}" var="item">
-								<option value="${item}">${item}</option>
-							</c:forEach>
-						</select>
+				<h1>Crea tu cuenta</h1>
+
+				<form action="${urlForm}crearCuenta" method="post">
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label for="usr_dni">DNI</label> <input type="text"
+								class="form-control" id="usr_dni" name="usr_dni"
+								value="${usr_dni}" readonly="readonly">
+						</div>
 					</div>
-					<button type="submit" class="btn btn-primary ml-4">Filtrar</button>
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label for="acc_email">Email</label> <input type="email"
+								class="form-control" id="acc_email" name="acc_email"
+								placeholder="Email" required="required">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label for="acc_password">Contraseña</label> <input
+								type="password" class="form-control" id="acc_password"
+								name="acc_password" placeholder="password" required="required">
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Guardar</button>
 				</form>
-				<table class="table table-striped table bordered table-hover">
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Dni</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Sexo</th>
-							<th scope="col">Teléfono</th>
-							<th scope="col">Tipo de usuario</th>
-							<th scope="col">Email</th>
-							<th scope="col">Estado</th>
-							<th scope="col">Opciones</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${VUsers}" var="user">
-							<tr>
-								<td>${user.usuarioID}</td>
-								<td>${user.dni}</td>
-								<td>${user.apellido}</td>
-								<td>${user.nombre}</td>
-								<td>${user.sexo}</td>
-								<td>${user.telefono}</td>
-								<td>${user.tipoUsuario.nombreTipoUsuario}</td>
-								<td>${user.cuenta.email}</td>
-								<td><c:choose>
-										<c:when test="${user.cuenta.estado=='Activo'}">
-											<span class="badge badge-pill badge-primary">${user.cuenta.estado}</span>
-										</c:when>
-										<c:otherwise>
-											<span class="badge badge-pill badge-danger">${user.cuenta.estado}</span>
-										</c:otherwise>
-									</c:choose></td>
-								<td class="options"><a
-									href="usuarios/delete?dni=${user.dni}">Eliminar</a>
-									<hr> <a href="usuarios/update?id=${user.usuarioID}">Editar</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
 
 			</div>
 
 		</div>
 
 	</div>
+
 
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>

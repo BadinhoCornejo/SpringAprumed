@@ -8,6 +8,7 @@ public interface UsuarioDao {
 	public int crearUsuario(Usuario usuario);
 	public int eliminarUsuario(Usuario usuario);
 	public int editarUsuario(Usuario usuario);
+	public Usuario buscarUsuarioCuenta(String Dni);
 	public Usuario buscarUsuario(String Dni);
 	public List<Usuario> mostrarUsuarios();
 }
