@@ -6,11 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import sowad.aprumed.dao.LibroDao;
 import sowad.aprumed.model.Libro;
+import sowad.aprumed.model.TipoUsuario;
 
 @Controller
 @RequestMapping("/libros")
@@ -33,6 +35,14 @@ public class LibroController {
 
 		return "libros/libros";
 
+	}
+	
+	@GetMapping("/nuevoLibro")
+	public String nuevoUsuario(Model model) {
+
+		
+		
+		return "libros/nuevoLibro";
 	}
 
 }

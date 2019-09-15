@@ -54,8 +54,9 @@ a, a:hover, a:focus {
 	margin-right: 2em;
 }
 
-#navbarDropdown:active {
-	color: #00FF00;
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+    color: #fff;
+    background: unset !important;
 }
 
 /*Tablas*/

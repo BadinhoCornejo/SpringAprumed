@@ -29,14 +29,6 @@ public class LibroImpl implements LibroDao {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
-	public int insertarLibro(Libro libro) {
-		String query = "insert into libro(Autor,CategoriaID,Estado,FechaPulicacion,Isbn,LibroID,Precio,Stock,Titulo)"
-				+ "values(?,?,?,?,?,?,?,?)";
-		Object[] inputs = new Object[] { libro.getAutor(), libro.getCategoria().getCategoriaID(), libro.getEstado(),
-				libro.getFechaPublicacion(), libro.getIsbn(), libro.getPrecio(), libro.getStock(), libro.getTitulo() };
-		return jdbcTemplateObject.update(query, inputs);
-	}
-
 	@SuppressWarnings("unchecked")
 	public List<Libro> mostrarLibros() {
 		String proc = "SP_MostrarLibros";
@@ -49,16 +41,32 @@ public class LibroImpl implements LibroDao {
 
 	}
 
-	/*
-	 * public Libro buscarLibro(String titulo) { String query="buscarLibro(?)";
-	 * jdbcTemplate = new JdbcTemplate(dataSource); return
-	 * jdbcTemplate.update(query, titulo); }
-	 */
+	@Override
+	public int crearLibro(Libro libro) {
+		String statement = "insert into libro(" + "Autor," + " FechaPublicacion," + " Isbn," + " Precio," + " Stock,"
+				+ " Titulo," + " CategoriaID," + " Estado) " + "values(?,?,?,?,?,?,?,?,?)";
 
-	/*
-	 * public int editarLibro(Libro libro) {
-	 * 
-	 * }
-	 */
+		Object[] inputs = new Object[] { libro.getAutor(), libro.getFechaPublicacion(), libro.getIsbn(),
+				libro.getPrecio(), 0, libro.getTitulo(), libro.getCategoria().getCategoriaID(), libro.getEstado() };
+		return jdbcTemplateObject.update(statement, inputs);
+	}
+
+	@Override
+	public int eliminarLibro(Libro libro) {
+		String statement = "update libro " + "set Estado = \"Inactivo\" " + "where LibroID = '" + libro.getLibroID()
+				+ "'";
+
+		return jdbcTemplateObject.update(statement);
+	}
+
+	@Override
+	public int editarLibro(Libro libro) {
+		String statement = "update libro " + "set Autor = '" + libro.getAutor() + "', " + "FechaPublicacion = '"
+				+ libro.getFechaPublicacion() + "', " + "Isbn = '" + libro.getIsbn() + "', " + "Precio = '"
+				+ libro.getPrecio() + "', " + "Titulo = '" + libro.getTitulo() + "', " + "CategoriaID = '"
+				+ libro.getCategoria() + "', " + "Estado = '" + libro.getEstado() + "' " + "where LibroID = '"
+				+ libro.getLibroID() + "'";
+		return jdbcTemplateObject.update(statement);
+	}
 
 }

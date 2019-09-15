@@ -24,6 +24,19 @@
 
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
+
+<style type="text/css">
+.btn:focus{
+	box-shadow: unset;
+}
+
+.btn-primary-outline.dropdown-toggle:after {
+	content: none
+}
+a:hover {
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -41,9 +54,7 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>
-					Libros
-				</h1>
+				<h1>Libros</h1>
 
 				<table class="table table-striped table bordered table-hover">
 					<thead>
@@ -56,7 +67,7 @@
 							<th scope="col">Precio</th>
 							<th scope="col">Stock</th>
 							<th scope="col">Isbn</th>
-							<th scope="col">Opciones</th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -67,15 +78,29 @@
 								<td>${libro.autor}</td>
 								<td>${libro.categoria.nombreCategoria}</td>
 								<td><fmt:formatDate value="${libro.fechaPublicacion}"
-										pattern="YYYY-MM-dd"/></td>
+										pattern="YYYY-MM-dd" /></td>
 								<td>${libro.precio}</td>
 								<td>${libro.stock}</td>
 								<td>${libro.isbn}</td>
+								<td><div class="btn-group">
+										<button
+											class="btn btn-primary-outline dropdown-toggle"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">
+											<i class="fas fa-ellipsis-h"></i>
+										</button>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a class="dropdown-item">Eliminar</a>
+											<a class="dropdown-item">Editar
+												action</a>
+											<a class="dropdown-item">Agregar ejemplar</a>
+										</div>
+									</div></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				
+
 			</div>
 
 		</div>
