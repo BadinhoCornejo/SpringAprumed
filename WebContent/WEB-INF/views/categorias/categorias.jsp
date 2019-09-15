@@ -42,7 +42,24 @@
 			<div class="main-content">
 				<h1>Categorias works!</h1>
 
-				
+				<table class="table table-striped table bordered table-hover">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Estado</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${VCategorias}" var="categoria">
+							<tr>
+								<td>${categoria.categoriaID}</td>
+								<td>${categoria.nombreCategoria}</td>
+								<td>${categoria.estado}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
 			</div>
 
