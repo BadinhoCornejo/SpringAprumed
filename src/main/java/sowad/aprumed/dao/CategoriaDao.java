@@ -6,8 +6,8 @@ import sowad.aprumed.model.Categoria;
 
 public interface CategoriaDao {
 	public int insertarCategoria(Categoria categoriaDao);
-	public Categoria buscarCategoria(Categoria categoriaDao);
+	public Categoria buscarCategoria(int id);
 	public int editarCategoria(Categoria categoriaDao);
-	public int eliminarCategoria(Categoria categoriaDao);
-	public List<Categoria> mostrarCategoria(Categoria categoriaDao);
+	public int eliminarCategoria(Categoria categoria);
+	public List<Categoria> mostrarCategorias();
 }
