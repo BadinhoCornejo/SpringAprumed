@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Nuevo libro</title>
+<title>Editar libro</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,7 +25,6 @@
 <!-- ----------------------------- -->
 <link rel="stylesheet"
 	href="${urlPublic}/Datepicker/dist/css/bootstrap-datepicker.min.css">
-
 <style type="text/css">
 .fa-calendar-week {
 	font-size: 1.5em;
@@ -36,7 +35,6 @@
 	cursor: pointer;
 }
 </style>
-
 </head>
 <body>
 
@@ -54,19 +52,22 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>Nuevo libro</h1>
+				<h1>Editar libro</h1>
 
-				<form action="${urlRoot}libros/crear" method="post">
-					<div class="form-row">
-						<div class="form-group col-md-5">
-							<label for="lbr_autor">Autor</label> <input type="text"
-								class="form-control" id="lbr_autor" name="lbr_autor"
-								placeholder="Autor" required="required">
-						</div>
-						<div class="form-group col-md-5">
-							<label for="lbr_titulo">Titulo</label> <input type="text"
-								class="form-control" id="lbr_titulo" name="lbr_titulo"
-								placeholder="Titulo" required="required">
+				<form action="${urlRoot}libros/editLibro" method="post">
+					<div class="row">
+						<div class="form-row">
+							<div class="form-group col-md-5">
+								<label for="lbr_autor">Autor</label> <input type="text"
+									class="form-control" id="lbr_autor" name="lbr_autor"
+									placeholder="Autor" required="required" value="${libro.autor}">
+							</div>
+							<div class="form-group col-md-5">
+								<label for="lbr_titulo">Titulo</label> <input type="text"
+									class="form-control" id="lbr_titulo" name="lbr_titulo"
+									placeholder="Titulo" required="required"
+									value="${libro.titulo}">
+							</div>
 						</div>
 					</div>
 
@@ -74,15 +75,16 @@
 						<div class="form-group col-md-2">
 							<label for="lbr_isbn">ISBN</label> <input type="text"
 								pattern="\d*" maxlength="13" class="form-control" id="lbr_isbn"
-								name="lbr_isbn" required="required">
+								name="lbr_isbn" required="required" value="${libro.isbn}">
 						</div>
 						<div class="form-group col-md-2">
 							<label for="lbr_date">Fecha de publicación</label>
 							<div id="sandbox-container">
 								<div class="input-group date">
 									<input size="16" type="text" class="form-control" id="lbr_date"
-										name="lbr_date" required="required" readonly="readonly">
-									<span class="input-group-addon"><i
+										name="lbr_date" required="required" readonly="readonly"
+										value="${libro.fechaPublicacion}"> <span
+										class="input-group-addon"><i
 										class="fas fa-calendar-week"></i></span>
 								</div>
 							</div>
@@ -90,7 +92,7 @@
 					</div>
 					<div class="row">
 						<div class="form-group col-md-4">
-							<label for="tipo_usr">Categoria</label> <select id="lbr_cat"
+							<label for="lbr_cat">Categoria</label> <select id="lbr_cat"
 								name="lbr_cat" class="form-control" required="required">
 								<c:forEach items="${VCategorias}" var="item">
 									<option value="${item.nombreCategoria}">${item.nombreCategoria}</option>
@@ -101,9 +103,30 @@
 							<label for="lbr_titulo">Precio</label> <input type="number"
 								pattern="[0-9]+([\.,][0-9]+)?" class="form-control"
 								id="lbr_precio" name="lbr_precio" placeholder="S/."
-								required="required">
+								required="required" value="${libro.precio}">
 						</div>
 					</div>
+
+					<fieldset class="form-group">
+						<div class="row">
+							<label class="col-form-label">Estado</label>
+							<div class="col-sm-4">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="estado"
+										id="activo" value="Activo" checked> <label
+										class="form-check-label" for="gridRadios1"> Activo </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="estado"
+										id="inactivo" value="Inactivo"> <label
+										class="form-check-label" for="gridRadios2"> Inactivo </label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<input type="hidden" name="id" value="${libro.libroID}">
+
 					<button type="submit" class="btn btn-primary">Guardar</button>
 				</form>
 
@@ -112,7 +135,6 @@
 		</div>
 
 	</div>
-
 
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>
@@ -137,6 +159,5 @@
 			format : "yyyy-mm-dd"
 		});
 	</script>
-
 </body>
 </html>

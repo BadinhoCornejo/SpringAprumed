@@ -48,6 +48,7 @@
 							<th scope="col">ID</th>
 							<th scope="col">Nombre</th>
 							<th scope="col">Estado</th>
+							<th scope="col">Opciones</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,7 +56,22 @@
 							<tr>
 								<td>${categoria.categoriaID}</td>
 								<td>${categoria.nombreCategoria}</td>
-								<td>${categoria.estado}</td>
+								<td><c:choose>
+										<c:when test="${categoria.estado=='Activo'}">
+											<span class="badge badge-pill badge-primary">${categoria.estado}</span>
+										</c:when>
+										<c:otherwise>
+											<span class="badge badge-pill badge-danger">${categoria.estado}</span>
+										</c:otherwise>
+									</c:choose></td>
+								<td class="options">
+									<div class="col">
+										<a href="categorias/delete?cat_nombre=${categoria.nombreCategoria}">Eliminar</a>
+									</div>
+									<div class="col mt-2">
+										<a href="categorias/update?cat_nombre=${categoria.nombreCategoria}">Editar</a>
+									</div>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

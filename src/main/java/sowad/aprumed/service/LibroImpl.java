@@ -40,14 +40,15 @@ public class LibroImpl implements LibroDao {
 		return (List<Libro>) out.get("RESULT");
 
 	}
-
+	
+	
 	@Override
 	public int crearLibro(Libro libro) {
 		String statement = "insert into libro(" + "Autor," + " FechaPublicacion," + " Isbn," + " Precio," + " Stock,"
-				+ " Titulo," + " CategoriaID," + " Estado) " + "values(?,?,?,?,?,?,?,?,?)";
+				+ " Titulo," + " CategoriaID," + " Estado) " + "values(?,?,?,?,?,?,?,?)";
 
 		Object[] inputs = new Object[] { libro.getAutor(), libro.getFechaPublicacion(), libro.getIsbn(),
-				libro.getPrecio(), 0, libro.getTitulo(), libro.getCategoria().getCategoriaID(), libro.getEstado() };
+				libro.getPrecio(), libro.getStock(), libro.getTitulo(), libro.getCategoria().getCategoriaID(), libro.getEstado() };
 		return jdbcTemplateObject.update(statement, inputs);
 	}
 
@@ -64,8 +65,29 @@ public class LibroImpl implements LibroDao {
 		String statement = "update libro " + "set Autor = '" + libro.getAutor() + "', " + "FechaPublicacion = '"
 				+ libro.getFechaPublicacion() + "', " + "Isbn = '" + libro.getIsbn() + "', " + "Precio = '"
 				+ libro.getPrecio() + "', " + "Titulo = '" + libro.getTitulo() + "', " + "CategoriaID = '"
-				+ libro.getCategoria() + "', " + "Estado = '" + libro.getEstado() + "' " + "where LibroID = '"
+				+ libro.getCategoria().getCategoriaID() + "', " + "Estado = '" + libro.getEstado() + "' " + "where LibroID = '"
 				+ libro.getLibroID() + "'";
+		return jdbcTemplateObject.update(statement);
+	}
+
+	@Override
+	public Libro getLibroById(int id) {
+		String statement = "select * from libro lbr inner join categoria cate on("
+				+ "lbr.CategoriaID = cate.CategoriaID) "
+				+ "where lbr.LibroID = '"+id+"'";
+		
+		return jdbcTemplateObject.queryForObject(statement, new LibrosMapper());
+
+	}
+
+	@Override
+	public int actualizarStock(Libro libro) {
+		
+		int stock = libro.getStock()+1;
+		
+		String statement = "update libro set Stock = '"+stock+"' "
+				+ "where LibroID = '"+libro.getLibroID()+"'";
+		
 		return jdbcTemplateObject.update(statement);
 	}
 

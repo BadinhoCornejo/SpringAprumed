@@ -5,12 +5,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!-- ----------------------------- -->
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Libros</title>
+<title>Editar categoria</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,20 +23,6 @@
 
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
-
-<style type="text/css">
-.btn:focus {
-	box-shadow: unset;
-}
-
-.btn-primary-outline.dropdown-toggle:after {
-	content: none
-}
-
-a:hover {
-	cursor: pointer;
-}
-</style>
 </head>
 <body>
 
@@ -55,58 +40,36 @@ a:hover {
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>Libros</h1>
+				<h1>Editar usuario</h1>
 
-				<table class="table table-striped table bordered table-hover">
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Titulo</th>
-							<th scope="col">Autor</th>
-							<th scope="col">Categoria</th>
-							<th scope="col">Fecha de publicación</th>
-							<th scope="col">Precio</th>
-							<th scope="col">Stock</th>
-							<th scope="col">Isbn</th>
-							<th scope="col">Estado</th>
-							<th scope="col"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${VLibros}" var="libro">
-							<tr>
-								<td>${libro.libroID}</td>
-								<td>${libro.titulo}</td>
-								<td>${libro.autor}</td>
-								<td>${libro.categoria.nombreCategoria}</td>
-								<td>${libro.fechaPublicacion}</td>
-								<td>${libro.precio}</td>
-								<td>${libro.stock}</td>
-								<td>${libro.isbn}</td>
-								<td><c:choose>
-										<c:when test="${libro.estado=='Activo'}">
-											<span class="badge badge-pill badge-primary">${libro.estado}</span>
-										</c:when>
-										<c:otherwise>
-											<span class="badge badge-pill badge-danger">${libro.estado}</span>
-										</c:otherwise>
-									</c:choose></td>
-								<td><div class="btn-group">
-										<button class="btn btn-primary-outline dropdown-toggle"
-											data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false">
-											<i class="fas fa-ellipsis-h"></i>
-										</button>
-										<div class="dropdown-menu dropdown-menu-right">
-											<a href="libros/delete?id=${libro.libroID}" class="dropdown-item">Eliminar</a> 
-											<a href="libros/update?id=${libro.libroID}" class="dropdown-item">Editar</a> 
-												<a href="libros/addEjemplar?id=${libro.libroID}" class="dropdown-item">Agregar ejemplar</a>
-										</div>
-									</div></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<form action="${urlRoot}categorias/editCate" method="post">
+					<div class="row">
+						<div class="form-group row">
+							<label for="cat_nombre">Nombre</label> <input type="text"
+								class="form-control" id="cat_nombre" name="cat_nombre"
+								placeholder="Nombre de la categoria" value="${cat.nombreCategoria}"
+								required="required">
+						</div>
+					</div>
+					<fieldset class="form-group">
+						<div class="row">
+							<label class="col-form-label">Estado</label>
+							<div class="col-sm-4">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="estado" id="activo"
+										value="Activo" checked> <label
+										class="form-check-label" for="gridRadios1"> Activo </label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="estado" id="inactivo"
+										value="Inactivo"> <label class="form-check-label"
+										for="gridRadios2"> Inactivo </label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</form>
 
 			</div>
 
@@ -114,7 +77,7 @@ a:hover {
 
 	</div>
 
-
+	<script type="text/javascript" src="${urlPublic}/js/editUsers.js"></script>
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>
 

@@ -6,7 +6,7 @@ import sowad.aprumed.model.Categoria;
 
 public interface CategoriaDao {
 	public int insertarCategoria(Categoria categoriaDao);
-	public Categoria buscarCategoria(int id);
+	public Categoria buscarCategoria(String nombreCategoria);
 	public int editarCategoria(Categoria categoriaDao);
 	public int eliminarCategoria(Categoria categoria);
 	public List<Categoria> mostrarCategorias();

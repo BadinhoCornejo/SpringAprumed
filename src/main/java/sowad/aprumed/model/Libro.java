@@ -9,7 +9,7 @@ public class Libro {
 
 	private int LibroID;
 	private String Autor;
-	private Date FechaPublicacion;
+	private String FechaPublicacion;
 	private String Isbn;
 	private Double Precio;
 	private int Stock;
@@ -37,11 +37,11 @@ public class Libro {
 		Autor = autor;
 	}
 
-	public Date getFechaPublicacion() {
+	public String getFechaPublicacion() {
 		return FechaPublicacion;
 	}
 
-	public void setFechaPublicacion(Date fechaPublicacion) {
+	public void setFechaPublicacion(String fechaPublicacion) {
 		FechaPublicacion = fechaPublicacion;
 	}
 

@@ -88,9 +88,14 @@
 											<span class="badge badge-pill badge-danger">${user.cuenta.estado}</span>
 										</c:otherwise>
 									</c:choose></td>
-								<td class="options"><a
-									href="usuarios/delete?dni=${user.dni}">Eliminar</a>
-									<hr> <a href="usuarios/update?id=${user.usuarioID}">Editar</a></td>
+								<td class="options">
+									<div class="col">
+										<a href="usuarios/delete?dni=${user.dni}">Eliminar</a>
+									</div>
+									<div class="col mt-2">
+										<a href="usuarios/update?id=${user.usuarioID}">Editar</a>
+									</div>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

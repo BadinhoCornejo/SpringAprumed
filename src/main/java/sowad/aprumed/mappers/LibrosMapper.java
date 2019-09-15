@@ -2,6 +2,7 @@ package sowad.aprumed.mappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -10,12 +11,14 @@ import sowad.aprumed.model.Libro;
 
 public class LibrosMapper implements RowMapper<Libro> {
 
+	SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+	
 	public Libro mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Libro lib = new Libro();
 		lib.setLibroID(rs.getInt("LibroID"));
 		lib.setAutor(rs.getString("Autor"));
 		lib.setEstado(rs.getString("Estado"));
-		lib.setFechaPublicacion(rs.getDate("FechaPublicacion"));
+		lib.setFechaPublicacion(formater.format(rs.getDate("FechaPublicacion")));
 		lib.setIsbn(rs.getString("Isbn"));
 		lib.setTitulo(rs.getString("Titulo"));
 		lib.setPrecio(rs.getDouble("Precio"));

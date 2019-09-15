@@ -9,5 +9,6 @@ public interface LibroDao {
 	public int crearLibro(Libro libro);
 	public int eliminarLibro(int id);
 	public int editarLibro(Libro libro);
-	
+	public Libro getLibroById(int id);
+	public int actualizarStock(Libro libro);
 }
