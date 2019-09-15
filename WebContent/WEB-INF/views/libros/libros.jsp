@@ -26,13 +26,14 @@
 <!-- ----------------------------- -->
 
 <style type="text/css">
-.btn:focus{
+.btn:focus {
 	box-shadow: unset;
 }
 
 .btn-primary-outline.dropdown-toggle:after {
 	content: none
 }
+
 a:hover {
 	cursor: pointer;
 }
@@ -67,6 +68,7 @@ a:hover {
 							<th scope="col">Precio</th>
 							<th scope="col">Stock</th>
 							<th scope="col">Isbn</th>
+							<th scope="col">Estado</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
@@ -82,18 +84,24 @@ a:hover {
 								<td>${libro.precio}</td>
 								<td>${libro.stock}</td>
 								<td>${libro.isbn}</td>
+								<td><c:choose>
+										<c:when test="${libro.estado=='Activo'}">
+											<span class="badge badge-pill badge-primary">${libro.estado}</span>
+										</c:when>
+										<c:otherwise>
+											<span class="badge badge-pill badge-danger">${libro.estado}</span>
+										</c:otherwise>
+									</c:choose></td>
 								<td><div class="btn-group">
-										<button
-											class="btn btn-primary-outline dropdown-toggle"
+										<button class="btn btn-primary-outline dropdown-toggle"
 											data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false">
 											<i class="fas fa-ellipsis-h"></i>
 										</button>
 										<div class="dropdown-menu dropdown-menu-right">
-											<a class="dropdown-item">Eliminar</a>
-											<a class="dropdown-item">Editar
-												action</a>
-											<a class="dropdown-item">Agregar ejemplar</a>
+											<a href="libros/delete?id=${libro.libroID}" class="dropdown-item">Eliminar</a> <a
+												class="dropdown-item">Editar</a> <a
+												class="dropdown-item">Agregar ejemplar</a>
 										</div>
 									</div></td>
 							</tr>

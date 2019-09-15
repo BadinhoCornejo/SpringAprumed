@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import sowad.aprumed.dao.LibroDao;
 import sowad.aprumed.model.Libro;
@@ -36,13 +37,29 @@ public class LibroController {
 		return "libros/libros";
 
 	}
-	
+
 	@GetMapping("/nuevoLibro")
 	public String nuevoUsuario(Model model) {
 
-		
-		
 		return "libros/nuevoLibro";
+	}
+
+	@RequestMapping(value = "/libros/delete", method = RequestMethod.GET, params = { "id" })
+	public String eliminarLibro(Model model, @RequestParam(value = "id", required = true) int id) {
+		List<Libro> libros = new ArrayList<Libro>();
+		
+		try {
+
+			libroDao.eliminarLibro(id);
+			libros = libroDao.mostrarLibros();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+
+		model.addAttribute("VLibros", libros);
+
+		return "libros/libros";
 	}
 
 }

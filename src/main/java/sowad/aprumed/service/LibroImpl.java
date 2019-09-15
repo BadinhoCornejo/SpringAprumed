@@ -52,8 +52,8 @@ public class LibroImpl implements LibroDao {
 	}
 
 	@Override
-	public int eliminarLibro(Libro libro) {
-		String statement = "update libro " + "set Estado = \"Inactivo\" " + "where LibroID = '" + libro.getLibroID()
+	public int eliminarLibro(int id) {
+		String statement = "update libro " + "set Estado = \"Inactivo\" " + "where LibroID = '" + id
 				+ "'";
 
 		return jdbcTemplateObject.update(statement);
