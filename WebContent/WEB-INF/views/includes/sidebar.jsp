@@ -11,7 +11,7 @@
 				class="fas fa-magic"></i> Mantenedores </a>
 			<ul class="collapse list-unstyled" id="homeSubmenu">
 				<li><a href="/SpringAprumed/libros/">Libros</a></li>
-				<li><a href="#">Home 2</a></li>
+				<li><a href="/SpringAprumed/categorias/">Categorias</a></li>
 				<li><a href="#">Home 3</a></li>
 			</ul></li>
 		<li><a href="#pageSubmenu" data-toggle="collapse"

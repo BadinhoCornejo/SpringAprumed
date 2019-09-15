@@ -56,5 +56,10 @@
 		<qualifier value="accdao" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="categoriaDao"
+		class="sowad.aprumed.service.CategoriaImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 </beans>
