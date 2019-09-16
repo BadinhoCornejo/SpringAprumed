@@ -7,92 +7,72 @@ import sowad.aprumed.model.Categoria;
 
 public class Libro {
 
-	private int LibroID;
-	private String Autor;
-	private String FechaPublicacion;
-	private String Isbn;
-	private Double Precio;
-	private int Stock;
-	private String Titulo;
-	private Categoria Categoria;
-	private String Estado;
-
-
-	public Libro() {
-	}
-
+	private int libroID;
+	private String autor;
+	private String fechaPublicacion;
+	private String isbn;
+	private Double precio;
+	private int stock;
+	private String titulo;
+	private Categoria categoria;
+	private String estado;
 	public int getLibroID() {
-		return LibroID;
+		return libroID;
 	}
-
 	public void setLibroID(int libroID) {
-		LibroID = libroID;
+		this.libroID = libroID;
 	}
-
 	public String getAutor() {
-		return Autor;
+		return autor;
 	}
-
 	public void setAutor(String autor) {
-		Autor = autor;
+		this.autor = autor;
 	}
-
 	public String getFechaPublicacion() {
-		return FechaPublicacion;
+		return fechaPublicacion;
 	}
-
 	public void setFechaPublicacion(String fechaPublicacion) {
-		FechaPublicacion = fechaPublicacion;
+		this.fechaPublicacion = fechaPublicacion;
 	}
-
 	public String getIsbn() {
-		return Isbn;
+		return isbn;
 	}
-
 	public void setIsbn(String isbn) {
-		Isbn = isbn;
+		this.isbn = isbn;
 	}
-
 	public Double getPrecio() {
-		return Precio;
+		return precio;
 	}
-
 	public void setPrecio(Double precio) {
-		Precio = precio;
+		this.precio = precio;
 	}
-
 	public int getStock() {
-		return Stock;
+		return stock;
 	}
-
 	public void setStock(int stock) {
-		Stock = stock;
+		this.stock = stock;
 	}
-
 	public String getTitulo() {
-		return Titulo;
+		return titulo;
 	}
-
 	public void setTitulo(String titulo) {
-		Titulo = titulo;
+		this.titulo = titulo;
 	}
-
 	public Categoria getCategoria() {
-		return Categoria;
+		return categoria;
 	}
-
 	public void setCategoria(Categoria categoria) {
-		Categoria = categoria;
+		this.categoria = categoria;
 	}
-
 	public String getEstado() {
-		return Estado;
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
-	public void setEstado(String estado) {
-		Estado = estado;
-	}
-	
+
+
 	
 	
 }

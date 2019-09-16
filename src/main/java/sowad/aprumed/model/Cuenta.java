@@ -1,41 +1,42 @@
 package sowad.aprumed.model;
 
 public class Cuenta {
-	private int CuentaID;
-	private Usuario Usuario;
-	private String Email;
-	private String UsrPassword;
-	private String Estado;
+	private int cuentaID;
+	private Usuario usuario;
+	private String email;
+	private String usrPassword;
+	private String estado;
 	public int getCuentaID() {
-		return CuentaID;
+		return cuentaID;
 	}
 	public void setCuentaID(int cuentaID) {
-		CuentaID = cuentaID;
+		this.cuentaID = cuentaID;
 	}
 	public Usuario getUsuario() {
-		return Usuario;
+		return usuario;
 	}
 	public void setUsuario(Usuario usuario) {
-		Usuario = usuario;
+		this.usuario = usuario;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getUsrPassword() {
-		return UsrPassword;
+		return usrPassword;
 	}
 	public void setUsrPassword(String usrPassword) {
-		UsrPassword = usrPassword;
+		this.usrPassword = usrPassword;
 	}
 	public String getEstado() {
-		return Estado;
+		return estado;
 	}
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
+	
 	
 	
 	

@@ -101,7 +101,7 @@
 						</div>
 						<div class="form-group col-md-5">
 							<label for="lbr_titulo">Precio</label> <input type="number"
-								pattern="[0-9]+([\.,][0-9]+)?" class="form-control"
+								step="any" class="form-control"
 								id="lbr_precio" name="lbr_precio" placeholder="S/."
 								required="required" value="${libro.precio}">
 						</div>

@@ -21,11 +21,9 @@ import sowad.aprumed.model.Libro;
 
 public class LibroImpl implements LibroDao {
 
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 

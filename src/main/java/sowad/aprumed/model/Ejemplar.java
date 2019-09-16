@@ -1,27 +1,27 @@
 package sowad.aprumed.model;
 
 public class Ejemplar {
-	public String Sku;
-	public String Estado;
-	public int EjemplarID;
+	public String sku;
+	public String estado;
+	public int ejemplarID;
 	public Libro libro;
 	public String getSku() {
-		return Sku;
+		return sku;
 	}
 	public void setSku(String sku) {
-		Sku = sku;
+		this.sku = sku;
 	}
 	public String getEstado() {
-		return Estado;
+		return estado;
 	}
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
 	public int getEjemplarID() {
-		return EjemplarID;
+		return ejemplarID;
 	}
 	public void setEjemplarID(int ejemplarID) {
-		EjemplarID = ejemplarID;
+		this.ejemplarID = ejemplarID;
 	}
 	public Libro getLibro() {
 		return libro;
@@ -29,6 +29,8 @@ public class Ejemplar {
 	public void setLibro(Libro libro) {
 		this.libro = libro;
 	}
+
+	
 	
 	
 	

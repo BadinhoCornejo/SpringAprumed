@@ -1,27 +1,28 @@
 package sowad.aprumed.model;
 
 public class TipoUsuario {
-	private String NombreTipoUsuario;
-	private String Estado;
-	private int TipoUsuarioID;
+	private String nombreTipoUsuario;
+	private String estado;
+	private int tipoUsuarioID;
 	public String getNombreTipoUsuario() {
-		return NombreTipoUsuario;
+		return nombreTipoUsuario;
 	}
 	public void setNombreTipoUsuario(String nombreTipoUsuario) {
-		NombreTipoUsuario = nombreTipoUsuario;
+		this.nombreTipoUsuario = nombreTipoUsuario;
 	}
 	public String getEstado() {
-		return Estado;
+		return estado;
 	}
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
 	public int getTipoUsuarioID() {
-		return TipoUsuarioID;
+		return tipoUsuarioID;
 	}
 	public void setTipoUsuarioID(int tipoUsuarioID) {
-		TipoUsuarioID = tipoUsuarioID;
+		this.tipoUsuarioID = tipoUsuarioID;
 	}
+
 	
 	
 	

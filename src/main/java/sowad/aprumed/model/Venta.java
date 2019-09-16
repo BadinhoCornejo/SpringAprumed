@@ -3,53 +3,34 @@ package sowad.aprumed.model;
 import java.util.Date;
 
 public class Venta {
-	private int VentaID;
-	private String Estado;
-	private Date FechaVenta;
-	private Date HoraVenta;
-
-	public Venta(int ventaID, String estado, Date fechaVenta, Date horaVenta) {
-		super();
-		VentaID = ventaID;
-		Estado = estado;
-		FechaVenta = fechaVenta;
-		HoraVenta = horaVenta;
-	}
-
-	public Venta() {
-	}
-
+	private int ventaID;
+	private String estado;
+	private Date fechaVenta;
+	private Date horaVenta;
 	public int getVentaID() {
-		return VentaID;
+		return ventaID;
 	}
-
 	public void setVentaID(int ventaID) {
-		VentaID = ventaID;
+		this.ventaID = ventaID;
 	}
-
 	public String getEstado() {
-		return Estado;
+		return estado;
 	}
-
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
-
 	public Date getFechaVenta() {
-		return FechaVenta;
+		return fechaVenta;
 	}
-
 	public void setFechaVenta(Date fechaVenta) {
-		FechaVenta = fechaVenta;
+		this.fechaVenta = fechaVenta;
 	}
-
 	public Date getHoraVenta() {
-		return HoraVenta;
+		return horaVenta;
+	}
+	public void setHoraVenta(Date horaVenta) {
+		this.horaVenta = horaVenta;
 	}
 
-	public void setHoraVenta(Date horaVenta) {
-		HoraVenta = horaVenta;
-	}
-	
-	
+
 }

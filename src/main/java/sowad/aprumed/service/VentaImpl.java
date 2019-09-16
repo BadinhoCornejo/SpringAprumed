@@ -1,5 +1,7 @@
 package sowad.aprumed.service;
 
-public class VentaImpl {
+import sowad.aprumed.dao.VentaDao;
+
+public class VentaImpl implements VentaDao{
 
 }

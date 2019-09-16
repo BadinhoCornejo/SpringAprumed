@@ -1,77 +1,63 @@
 package sowad.aprumed.model;
 
 public class Usuario {
-	private int UsuarioID;
-	private TipoUsuario TipoUsuario;
-	private Cuenta Cuenta;
-	private String Apellido;
-	private String Nombre;
-	private String Dni;
-	private String Sexo;
-	private String Telefono;
-
-	public void setCuenta(Cuenta cuenta) {
-		Cuenta = cuenta;
-	}
-
-	public Cuenta getCuenta() {
-		return Cuenta;
-	}
-
+	private int usuarioID;
+	private TipoUsuario tipoUsuario;
+	private Cuenta cuenta;
+	private String apellido;
+	private String nombre;
+	private String dni;
+	private String sexo;
+	private String telefono;
 	public int getUsuarioID() {
-		return UsuarioID;
+		return usuarioID;
 	}
-
 	public void setUsuarioID(int usuarioID) {
-		UsuarioID = usuarioID;
+		this.usuarioID = usuarioID;
 	}
-
 	public TipoUsuario getTipoUsuario() {
-		return TipoUsuario;
+		return tipoUsuario;
 	}
-
 	public void setTipoUsuario(TipoUsuario tipoUsuario) {
-		TipoUsuario = tipoUsuario;
+		this.tipoUsuario = tipoUsuario;
 	}
-
+	public Cuenta getCuenta() {
+		return cuenta;
+	}
+	public void setCuenta(Cuenta cuenta) {
+		this.cuenta = cuenta;
+	}
 	public String getApellido() {
-		return Apellido;
+		return apellido;
 	}
-
 	public void setApellido(String apellido) {
-		Apellido = apellido;
+		this.apellido = apellido;
 	}
-
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
-
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
-
 	public String getDni() {
-		return Dni;
+		return dni;
 	}
-
 	public void setDni(String dni) {
-		Dni = dni;
+		this.dni = dni;
 	}
-
 	public String getSexo() {
-		return Sexo;
+		return sexo;
 	}
-
 	public void setSexo(String sexo) {
-		Sexo = sexo;
+		this.sexo = sexo;
 	}
-
 	public String getTelefono() {
-		return Telefono;
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
-	public void setTelefono(String telefono) {
-		Telefono = telefono;
-	}
+	
 
 }

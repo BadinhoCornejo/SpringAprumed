@@ -29,6 +29,15 @@
 				<li><a href="/SpringAprumed/usuarios/nuevoUsuario">Nuevo
 						usuario</a></li>
 			</ul></li>
+		<li><a href="#ventasSubmenu" data-toggle="collapse"
+			aria-expanded="false" class="dropdown-toggle"> <i
+				class="fas fa-user-cog"></i> Ventas
+		</a>
+			<ul class="collapse list-unstyled" id="ventasSubmenu">
+				<li><a href="/SpringAprumed/ventas/">Ver ventas</a></li>
+				<li><a href="/SpringAprumed/ventas/buscarVenta">Buscar
+						venta </a></li>
+			</ul></li>
 	</ul>
 
 </nav>

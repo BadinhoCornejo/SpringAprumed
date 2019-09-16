@@ -2,32 +2,28 @@ package sowad.aprumed.model;
 
 public class Categoria {
 
-	private int CategoriaID;
-	private String NombreCategoria;
-	private String Estado;
-	@Override
-	public String toString() {
-		return "Categoria [CategoriaID=" + CategoriaID + ", NombreCategoria=" + NombreCategoria + ",Estado=" + Estado + "]";
-	}
-	
+	private int categoriaID;
+	private String nombreCategoria;
+	private String estado;
 	public int getCategoriaID() {
-		return CategoriaID;
+		return categoriaID;
 	}
 	public void setCategoriaID(int categoriaID) {
-		CategoriaID = categoriaID;
+		this.categoriaID = categoriaID;
 	}
 	public String getNombreCategoria() {
-		return NombreCategoria;
+		return nombreCategoria;
 	}
 	public void setNombreCategoria(String nombreCategoria) {
-		NombreCategoria = nombreCategoria;
+		this.nombreCategoria = nombreCategoria;
 	}
-	public String getEstado(){
-		return Estado;
+	public String getEstado() {
+		return estado;
 	}
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
+	
 	
 	
 }
