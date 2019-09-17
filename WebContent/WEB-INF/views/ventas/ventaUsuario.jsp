@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ventas</title>
+<title>Asignar a usuario</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,8 +19,8 @@
 <script src="https://kit.fontawesome.com/e1143320de.js"></script>
 
 <spring:url value="/resources" var="urlPublic" />
-
 <spring:url value="/" var="urlRoot"></spring:url>
+
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
 </head>
@@ -40,56 +40,22 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>
-					Ventas works!<i class="fas fa-rocket"></i>
-				</h1>
+				<h1>Vender ${ejemplar.sku}</h1>
 
-				<table class="table table-striped table bordered table-hover">
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Estado</th>
-							<th scope="col">Fecha</th>
-							<th scope="col">Hora</th>
-							<th scope="col">Dni</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Nombre</th>
+				<form action="${urlRoot}ventas/crearVenta" method="post">
 
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${Vventas}" var="venta">
-							<tr>
-								<td>${venta.ventaID}</td>
-								<td><c:choose>
-										<c:when test="${venta.estado=='Activo'}">
-											<span class="badge badge-pill badge-primary">${venta.estado}</span>
-										</c:when>
-										<c:when test="${venta.estado=='Realizada'}">
-											<span class="badge badge-pill badge-success">${venta.estado}</span>
-										</c:when>
-										<c:otherwise>
-											<span class="badge badge-pill badge-danger">${venta.estado}</span>
-										</c:otherwise>
-									</c:choose></td>
-								<td>${venta.fechaVenta}</td>
-								<td>${venta.horaVenta}</td>
-								<td>${venta.usuario.dni}</td>
-								<td>${venta.usuario.apellido}</td>
-								<td>${venta.usuario.nombre}</td>
+					<input type="hidden" name="sku" value="${ejemplar.sku}}">
 
-								<td class="options">
-									<div class="col">
-										<a href="">Nimi</a>
-									</div>
-									<div class="col mt-2">
-										<a href="">Nimi</a>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+					<div class="form-row">
+						<div class="form-group col-md-5">
+							<label for="dni">Ingrese el DNI del cliente</label> <input
+								type="text" class="form-control" id="dni" name="dni"
+								placeholder="DNI" required="required">
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</form>
 
 			</div>
 
@@ -97,6 +63,7 @@
 
 	</div>
 
+	<script type="text/javascript" src="${urlPublic}/js/venta.js"></script>
 	<!-- Copiar esto en todos los jsp -->
 	<script type="text/javascript" src="${urlPublic}/js/util.js"></script>
 

@@ -6,6 +6,14 @@ public class ComprobantePago {
 	private String ruc;
 	private Double subtotal;
 	private Venta venta;
+	private int comprobantePagoID;
+	
+	public int getComprobantePagoID() {
+		return comprobantePagoID;
+	}
+	public void setComprobantePagoID(int comprobantePagoID) {
+		this.comprobantePagoID = comprobantePagoID;
+	}
 	public String getFechaCp() {
 		return fechaCp;
 	}

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ventas</title>
+<title>Resultados</title>
 <!-- Copiar esto en todos los jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,8 +19,8 @@
 <script src="https://kit.fontawesome.com/e1143320de.js"></script>
 
 <spring:url value="/resources" var="urlPublic" />
-
 <spring:url value="/" var="urlRoot"></spring:url>
+
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
 </head>
@@ -40,52 +40,32 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>
-					Ventas works!<i class="fas fa-rocket"></i>
-				</h1>
+				<h1>Libros</h1>
 
 				<table class="table table-striped table bordered table-hover">
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
-							<th scope="col">Estado</th>
-							<th scope="col">Fecha</th>
-							<th scope="col">Hora</th>
-							<th scope="col">Dni</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Nombre</th>
-
+							<th scope="col">Titulo</th>
+							<th scope="col">Autor</th>
+							<th scope="col">Categoria</th>
+							<th scope="col">Fecha de publicación</th>
+							<th scope="col">Precio</th>
+							<th scope="col">Isbn</th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${Vventas}" var="venta">
+						<c:forEach items="${VEjemplar}" var="ejemplar">
 							<tr>
-								<td>${venta.ventaID}</td>
-								<td><c:choose>
-										<c:when test="${venta.estado=='Activo'}">
-											<span class="badge badge-pill badge-primary">${venta.estado}</span>
-										</c:when>
-										<c:when test="${venta.estado=='Realizada'}">
-											<span class="badge badge-pill badge-success">${venta.estado}</span>
-										</c:when>
-										<c:otherwise>
-											<span class="badge badge-pill badge-danger">${venta.estado}</span>
-										</c:otherwise>
-									</c:choose></td>
-								<td>${venta.fechaVenta}</td>
-								<td>${venta.horaVenta}</td>
-								<td>${venta.usuario.dni}</td>
-								<td>${venta.usuario.apellido}</td>
-								<td>${venta.usuario.nombre}</td>
-
-								<td class="options">
-									<div class="col">
-										<a href="">Nimi</a>
-									</div>
-									<div class="col mt-2">
-										<a href="">Nimi</a>
-									</div>
-								</td>
+								<td>${ejemplar.libro.libroID}</td>
+								<td>${ejemplar.libro.titulo}</td>
+								<td>${ejemplar.libro.autor}</td>
+								<td>${ejemplar.libro.categoria.nombreCategoria}</td>
+								<td>${ejemplar.libro.fechaPublicacion}</td>
+								<td>${ejemplar.libro.precio}</td>
+								<td>${ejemplar.libro.isbn}</td>
+								<td><a href="add?sku=${ejemplar.sku}" type="button" class="btn btn-success">Agregar a una venta</a> </td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -50,27 +50,56 @@
 		<qualifier value="tipdao" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	<bean id="cuentaDao"
-		class="sowad.aprumed.service.CuentaImpl">
+
+	<bean id="cuentaDao" class="sowad.aprumed.service.CuentaImpl">
 		<qualifier value="accdao" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="categoriaDao"
 		class="sowad.aprumed.service.CategoriaImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="categoriaDaoLbr"
 		class="sowad.aprumed.service.CategoriaImpl">
 		<qualifier value="catdaolbr" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	<bean id="ejemplarDao"
-		class="sowad.aprumed.service.EjemplarImpl">
+
+	<bean id="ejemplarDao" class="sowad.aprumed.service.EjemplarImpl">
 		<qualifier value="ejemplardao" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="ventaDao" class="sowad.aprumed.service.VentaImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="lineaventaDao"
+		class="sowad.aprumed.service.LineaVentaImpl">
+		<qualifier value="linventa" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="comprobantePagoDao"
+		class="sowad.aprumed.service.ComprobantePagoImpl">
+		<qualifier value="cp" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="libroVentaDao" class="sowad.aprumed.service.LibroImpl">
+		<qualifier value="lbrventa" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="ejemplarVentaDao"
+		class="sowad.aprumed.service.EjemplarImpl">
+		<qualifier value="ejemplarventa" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="usrdaoventa" class="sowad.aprumed.service.UsuarioImpl">
+		<qualifier value="usrventa" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 

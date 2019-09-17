@@ -211,8 +211,11 @@ public class LibroController {
 			Ejemplar ejemplar = new Ejemplar();
 			ejemplar.setLibro(lbr);
 			ejemplar.setSku(sku);
+			ejemplar.setEstado("En almacen");
 			
 			ejemplarDao.crearEjemplar(ejemplar);
+			
+			lbr.addStock();
 			
 			libroDao.actualizarStock(lbr);
 

@@ -12,11 +12,9 @@ import sowad.aprumed.model.Categoria;
 
 public class CategoriaImpl implements CategoriaDao {
 
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 

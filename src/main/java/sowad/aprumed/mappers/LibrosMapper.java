@@ -18,7 +18,7 @@ public class LibrosMapper implements RowMapper<Libro> {
 		lib.setLibroID(rs.getInt("LibroID"));
 		lib.setAutor(rs.getString("Autor"));
 		lib.setEstado(rs.getString("Estado"));
-		lib.setFechaPublicacion(formater.format(rs.getDate("FechaPublicacion")));
+		lib.setFechaPublicacion(rs.getString("FechaPublicacion"));
 		lib.setIsbn(rs.getString("Isbn"));
 		lib.setTitulo(rs.getString("Titulo"));
 		lib.setPrecio(rs.getDouble("Precio"));

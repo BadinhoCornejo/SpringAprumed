@@ -6,8 +6,9 @@ import sowad.aprumed.model.Ejemplar;
 
 public interface EjemplarDao {
 	public int crearEjemplar(Ejemplar ejemplar);
-	public int enCarrito(String sku);
-	public int enAlmacen(String sku);
-	public int vendido(String sku);
+	public Ejemplar buscarEjemplar(String sku);
+	public int enCarrito(int id);
+	public int enAlmacen(int id);
+	public int vendido(int id);
 	public List<Ejemplar> mostrarEjemplares(String libroID);
 }

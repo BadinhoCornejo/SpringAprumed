@@ -9,11 +9,9 @@ import sowad.aprumed.model.Cuenta;
 
 public class CuentaImpl implements CuentaDao {
 
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
