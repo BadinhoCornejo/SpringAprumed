@@ -65,7 +65,7 @@
 								<td>${ejemplar.libro.fechaPublicacion}</td>
 								<td>${ejemplar.libro.precio}</td>
 								<td>${ejemplar.libro.isbn}</td>
-								<td><a href="add?sku=${ejemplar.sku}" type="button" class="btn btn-success">Agregar a una venta</a> </td>
+								<td><a href="add?sku=${ejemplar.sku}" type="button" class="btn btn-primary">Agregar a una venta</a> </td>
 							</tr>
 						</c:forEach>
 					</tbody>

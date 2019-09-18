@@ -80,10 +80,7 @@
 
 								<td class="options">
 									<div class="col">
-										<a href="">Nimi</a>
-									</div>
-									<div class="col mt-2">
-										<a href="">Nimi</a>
+										<a href="anular?id=${venta.ventaID}">Anular</a>
 									</div>
 								</td>
 							</tr>

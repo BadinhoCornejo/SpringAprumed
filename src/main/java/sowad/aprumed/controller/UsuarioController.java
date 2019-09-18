@@ -156,12 +156,13 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuarios/delete", method = RequestMethod.GET, params = { "dni" })
 	public String eliminarUsuario(Model model, @RequestParam(value = "dni", required = true) String dni) {
 
-		Usuario usr = usuarioDao.buscarUsuario(dni);
+		Usuario usr = new Usuario();
 
 		List<Usuario> users = new ArrayList<Usuario>();
 		List<TipoUsuario> tipUsrs = getTiposUsr();
 
 		try {
+			usr = usuarioDao.buscarUsuario(dni);
 			usuarioDao.eliminarUsuario(usr);
 			users = usuarioDao.mostrarUsuarios();
 

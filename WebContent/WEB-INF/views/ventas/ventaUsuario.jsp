@@ -40,11 +40,11 @@
 
 			<!-- Colocar contenido de la pagina aqui -->
 			<div class="main-content">
-				<h1>Vender ${ejemplar.sku}</h1>
+				<h1>Vender ${sku}</h1>
 
 				<form action="${urlRoot}ventas/crearVenta" method="post">
 
-					<input type="hidden" name="sku" value="${ejemplar.sku}}">
+					<input type="hidden" name="sku" value="${sku}">
 
 					<div class="form-row">
 						<div class="form-group col-md-5">

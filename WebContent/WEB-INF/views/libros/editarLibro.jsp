@@ -33,6 +33,7 @@
 
 .fa-calendar-week:hover {
 	cursor: pointer;
+	color: #5D78FF;
 }
 </style>
 </head>
@@ -56,19 +57,21 @@
 
 				<form action="${urlRoot}libros/editLibro" method="post">
 					<div class="row">
-						<div class="form-row">
-							<div class="form-group col-md-5">
-								<label for="lbr_autor">Autor</label> <input type="text"
-									class="form-control" id="lbr_autor" name="lbr_autor"
-									placeholder="Autor" required="required" value="${libro.autor}">
-							</div>
-							<div class="form-group col-md-5">
-								<label for="lbr_titulo">Titulo</label> <input type="text"
-									class="form-control" id="lbr_titulo" name="lbr_titulo"
-									placeholder="Titulo" required="required"
-									value="${libro.titulo}">
-							</div>
+						<div class="form-group col-md-5">
+							<label for="lbr_autor">Autor</label> <input type="text"
+								class="form-control" id="lbr_autor" name="lbr_autor"
+								placeholder="Autor" required="required" value="${libro.autor}">
 						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label for="lbr_titulo">Titulo</label> <input type="text"
+								class="form-control" id="lbr_titulo" name="lbr_titulo"
+								placeholder="Titulo" required="required" value="${libro.titulo}">
+						</div>
+
 					</div>
 
 					<div class="form-row">
@@ -77,7 +80,7 @@
 								pattern="\d*" maxlength="13" class="form-control" id="lbr_isbn"
 								name="lbr_isbn" required="required" value="${libro.isbn}">
 						</div>
-						<div class="form-group col-md-2">
+						<div class="form-group col-md-3">
 							<label for="lbr_date">Fecha de publicación</label>
 							<div id="sandbox-container">
 								<div class="input-group date">
@@ -99,11 +102,11 @@
 								</c:forEach>
 							</select>
 						</div>
-						<div class="form-group col-md-5">
+						<div class="form-group col-sm-1">
 							<label for="lbr_titulo">Precio</label> <input type="number"
-								step="any" class="form-control"
-								id="lbr_precio" name="lbr_precio" placeholder="S/."
-								required="required" value="${libro.precio}">
+								step="any" class="form-control" id="lbr_precio"
+								name="lbr_precio" placeholder="S/." required="required"
+								value="${libro.precio}">
 						</div>
 					</div>
 

@@ -52,32 +52,42 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 				<h1>Nuevo usuario</h1>
 
 				<form action="${urlForm}crear" method="post">
-					<div class="form-row">
+					<div class="row">
 						<div class="form-group col-md-5">
 							<label for="usr_apellido">Apellido</label> <input type="text"
-								class="form-control" id="usr_apellido" name="usr_apellido" placeholder="Apellido" required="required">
+								class="form-control" id="usr_apellido" name="usr_apellido"
+								placeholder="Apellido" required="required">
 						</div>
+
+					</div>
+
+					<div class="row">
 						<div class="form-group col-md-5">
 							<label for="usr_nombre">Nombre</label> <input type="text"
-								class="form-control" id="usr_nombre" name="usr_nombre" placeholder="Nombre" required="required">
+								class="form-control" id="usr_nombre" name="usr_nombre"
+								placeholder="Nombre" required="required">
 						</div>
 					</div>
+
+
 
 					<div class="form-row">
 						<div class="form-group col-md-2">
 							<label for="usr_phone">Teléfono</label> <input type="text"
-								pattern="\d*" maxlength="9" class="form-control" id="usr_phone" name="usr_phone"
-								style="" required="required">
+								pattern="\d*" maxlength="9" class="form-control" id="usr_phone"
+								name="usr_phone" style="" required="required">
 						</div>
 						<div class="form-group col-md-2">
 							<label for="usr_dni">DNI</label> <input type="text" pattern="\d*"
-								maxlength="8" class="form-control" id="usr_dni" name="usr_dni" required="required">
+								maxlength="8" class="form-control" id="usr_dni" name="usr_dni"
+								required="required">
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-4">
 							<label for="tipo_usr">Tipo de usuario</label> <select
-								id="tipo_usr" name="tipo_usr" class="form-control" required="required">
+								id="tipo_usr" name="tipo_usr" class="form-control"
+								required="required">
 								<c:forEach items="${VTipoUsrs}" var="item">
 									<option value="${item.nombreTipoUsuario}">${item.nombreTipoUsuario}</option>
 								</c:forEach>

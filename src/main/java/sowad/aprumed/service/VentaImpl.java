@@ -33,7 +33,7 @@ public class VentaImpl implements VentaDao {
 				+ "usr.UsuarioID, usr.Apellido, usr.Dni, usr.Nombre, usr.Sexo, usr.Telefono,\r\n"
 				+ "tusr.NombreTipoUsuario " + "from venta v inner join usuario usr on(v.UsuarioID = usr.UsuarioID) "
 				+ "inner join tipousuario tusr on(usr.TipoUsuarioID = tusr.TipoUsuarioID) "
-				+ "where v.Estado = \"Activa\" AND usr.UsuarioID = '" + dni + "'";
+				+ "where v.Estado = \"Activo\" AND usr.Dni = '" + dni + "'";
 		return jdbcTemplateObject.queryForObject(statement, new VentaMapper());
 	}
 

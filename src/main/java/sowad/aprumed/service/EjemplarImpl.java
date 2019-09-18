@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import sowad.aprumed.dao.EjemplarDao;
 import sowad.aprumed.mappers.EjemplarMapper;
-import sowad.aprumed.mappers.UsuariosMapper;
+import sowad.aprumed.mappers.VentaMapper;
 import sowad.aprumed.model.Ejemplar;
 
 public class EjemplarImpl implements EjemplarDao {
@@ -58,13 +58,13 @@ public class EjemplarImpl implements EjemplarDao {
 
 	@Override
 	public Ejemplar buscarEjemplar(String sku) {
-		String proc = "SP_BuscarEjemplar";
+		String statement = "select l.Autor, l.FechaPublicacion, l.Estado, l.LibroID, l.Isbn, l.Titulo, l.Precio, l.Stock, "
+				+ "c.CategoriaID, c.NombreCategoria, "
+				+ "e.Sku, e.EjemplarID, e.Estado as \"EstadoEjemplar\" "
+				+ "from libro l inner join ejemplar e on(l.LibroID = e.LibroID) inner join categoria c on(l.CategoriaID = c.CategoriaID) "
+				+ "where e.Sku = '"+sku+"' AND e.Estado = \"En almacen\"";
 
-		SimpleJdbcCall procedure = new SimpleJdbcCall(jdbcTemplateObject).withProcedureName(proc)
-				.returningResultSet("RESULT", new EjemplarMapper());
-
-		Map<String, Object> out = procedure.execute();
-		return (Ejemplar) out.get("RESULT");
+		return jdbcTemplateObject.queryForObject(statement, new EjemplarMapper());
 	}
 
 }
