@@ -23,6 +23,16 @@
 <spring:url value="/" var="urlRoot"></spring:url>
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
+
+<style type="text/css">
+
+	form{
+		margin-top: 16px;
+		margin-bottom: 16px;
+	}
+	
+</style>
+
 </head>
 <body>
 
