@@ -20,7 +20,7 @@
 <script src="https://kit.fontawesome.com/e1143320de.js"></script>
 
 <spring:url value="/resources" var="urlPublic" />
-
+<spring:url value="/" var="urlRoot"></spring:url>
 
 <link rel="stylesheet" href="${urlPublic}/css/util.css">
 <!-- ----------------------------- -->
@@ -41,12 +41,14 @@
 			<!-- Navbar-end -->
 
 			<!-- Colocar contenido de la pagina aqui -->
-			<div class="main-content">
-				<h1>
-					Dashboard works!<i class="fas fa-rocket"></i>
-				</h1>
+			<div class="container-fluid">
+				<div class="main-content">
+					<h1>
+						Dashboard works!<i class="fas fa-rocket"></i>
+					</h1>
 
-				<div id="root"></div>
+					<div id="root"></div>
+				</div>
 			</div>
 
 		</div>

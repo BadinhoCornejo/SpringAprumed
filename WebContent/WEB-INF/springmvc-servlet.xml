@@ -28,7 +28,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver" />
+			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/aprumeddb" />
 		<property name="username" value="root" />
@@ -36,6 +36,70 @@
 	</bean>
 	<bean id="jdbcTemplate"
 		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="libroDao" class="sowad.aprumed.service.LibroImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="usuarioDao" class="sowad.aprumed.service.UsuarioImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="tipoUsuarioDao"
+		class="sowad.aprumed.service.TipoUsuarioImpl">
+		<qualifier value="tipdao" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="cuentaDao" class="sowad.aprumed.service.CuentaImpl">
+		<qualifier value="accdao" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="categoriaDao"
+		class="sowad.aprumed.service.CategoriaImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="categoriaDaoLbr"
+		class="sowad.aprumed.service.CategoriaImpl">
+		<qualifier value="catdaolbr" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="ejemplarDao" class="sowad.aprumed.service.EjemplarImpl">
+		<qualifier value="ejemplardao" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="ventaDao" class="sowad.aprumed.service.VentaImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="lineaventaDao"
+		class="sowad.aprumed.service.LineaVentaImpl">
+		<qualifier value="linventa" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="comprobantePagoDao"
+		class="sowad.aprumed.service.ComprobantePagoImpl">
+		<qualifier value="cp" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="libroVentaDao" class="sowad.aprumed.service.LibroImpl">
+		<qualifier value="lbrventa" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="ejemplarVentaDao"
+		class="sowad.aprumed.service.EjemplarImpl">
+		<qualifier value="ejemplarventa" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="usrdaoventa" class="sowad.aprumed.service.UsuarioImpl">
+		<qualifier value="usrventa" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
