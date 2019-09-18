@@ -41,8 +41,8 @@ a, a:hover, a:focus {
 }
 
 .main-content {
-	margin-top: 2em; margin-left : 2em;
-	margin-right: 2em;
+	margin-top: 2em;
+	margin-right: 98px;
 	margin-left: 98px;
 }
 
@@ -51,7 +51,7 @@ a, a:hover, a:focus {
 }
 
 #navbarSupportedContent {
-	margin-right: 2em;
+	margin-right: 5em !important;
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {

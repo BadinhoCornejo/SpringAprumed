@@ -44,6 +44,7 @@ form div {
 
 form label {
 	margin-right: 10px;
+	display: flex !important;
 }
 
 .form-check {
@@ -132,9 +133,10 @@ form label {
 									</select>
 								</div>
 							</div>
-							<fieldset class="form-group">
-								<div class="row">
-									<label class="col-form-label">Sexo</label>
+							<div class="row ml-2">
+								<fieldset class="form-group">
+
+									<label class="col-form-label" style="margin-left: -11px;">Sexo</label>
 									<div class="col-sm-4">
 										<div class="form-check">
 											<input class="form-check-input" type="radio" name="sex"
@@ -148,9 +150,10 @@ form label {
 												class="form-check-label" for="gridRadios2"> Femenino
 											</label>
 										</div>
+
 									</div>
-								</div>
-							</fieldset>
+								</fieldset>
+							</div>
 							<button type="submit" class="btn btn-primary">Guardar</button>
 						</form>
 					</div>
@@ -172,9 +175,9 @@ form label {
 										placeholder="password" required="required">
 								</div>
 							</div>
+							<div class="row ml-4">
+								<fieldset class="form-group">
 
-							<fieldset class="form-group">
-								<div class="row">
 									<label class="col-form-label">Estado</label>
 									<div class="col-sm-4">
 										<div class="form-check">
@@ -188,11 +191,10 @@ form label {
 												class="form-check-label" for="estatus"> Inactivo </label>
 										</div>
 									</div>
-								</div>
-							</fieldset>
 
-							<input type="hidden" name="usr_dni"
-								value="${user.dni}">
+								</fieldset>
+							</div>
+							<input type="hidden" name="usr_dni" value="${user.dni}">
 
 							<button type="submit" class="btn btn-primary">Guardar</button>
 						</form>

@@ -3,7 +3,8 @@
 	<i id="sidebarCollapse" class="fas fa-align-left"></i>
 
 	<form action="../ventas/buscarLibro" method="post"
-		class="form-inline mt-1">
+		class="form-inline" style="
+    margin: 0;">
 		<input class="form-control mr-sm-2" type="search"
 			placeholder="Buscar libros" aria-label="Search" name="parameter">
 		<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
@@ -11,7 +12,7 @@
 		</button>
 	</form>
 
-	<div class="collapse navbar-collapse justify-content-end"
+	<div class="collapse navbar-collapse justify-content-end mr-4"
 		id="navbarSupportedContent">
 		<ul class="navbar-nav">
 			<li class="nav-item active"><a class="nav-link"

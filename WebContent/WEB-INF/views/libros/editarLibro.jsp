@@ -110,23 +110,25 @@
 						</div>
 					</div>
 
-					<fieldset class="form-group">
-						<div class="row">
-							<label class="col-form-label">Estado</label>
-							<div class="col-sm-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="estado"
-										id="activo" value="Activo" checked> <label
-										class="form-check-label" for="gridRadios1"> Activo </label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="estado"
-										id="inactivo" value="Inactivo"> <label
-										class="form-check-label" for="gridRadios2"> Inactivo </label>
-								</div>
+					<div class="row ml-1">
+								<fieldset class="form-group">
+
+									<label class="col-form-label">Estado</label>
+									<div class="col-sm-4">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="estado"
+												id="activo" value="Activo" checked> <label
+												class="form-check-label" for="estatus"> Activo </label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="estado"
+												id="inactivo" value="Inactivo"> <label
+												class="form-check-label" for="estatus"> Inactivo </label>
+										</div>
+									</div>
+
+								</fieldset>
 							</div>
-						</div>
-					</fieldset>
 
 					<input type="hidden" name="id" value="${libro.libroID}">
 
